@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.shishi.com/myschema/customize"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://www.shishi.com/myschema/customize"
+            elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xsd:element name="word">
+    <xsd:complexType>
+        <xsd:complexContent>
+            <xsd:restriction base="xsd:anyType">
+                <xsd:attribute name="say" type="xsd:string" use="required" />
+            </xsd:restriction>
+        </xsd:complexContent>
+    </xsd:complexType>
+</xsd:element>
+</xsd:schema>

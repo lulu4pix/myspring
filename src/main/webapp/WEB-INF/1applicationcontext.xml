@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/cache"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+
+  <!--  <customize:first say="good day"/> -->
+
+
+    <!-- food -->
+    <bean id="food1" class="com.readspring.bean.Food" p:color="yellow"/>
+    <bean id="food2" class="com.readspring.bean.Food" p:color="green"/>
+
+    <!-- cat -->
+    <bean id="cat" class="com.readspring.bean.Cat">
+        <constructor-arg name="catName" index="1" value="tom" />
+        <constructor-arg name="food" index="0" ref="food1" />
+    </bean>
+
+
+
+    <!-- mouse -->
+    <bean id="mouse" class="com.readspring.bean.Mouse">
+        <property name="mouseName" value="Sam" />
+        <property name="food" ref="food1" />
+        <!-- List<String> -->
+        <property name="alias">
+            <list>
+                <value>sam1</value>
+                <value>sam2</value>
+            </list>
+        </property>
+        <!-- List<Object> -->
+        <property name="foods">
+            <list>
+                <ref bean="food1" />
+                <ref bean="food2" />
+            </list>
+        </property>
+        <!-- Map<String,Object> -->
+        <property name="sortFoods">
+            <map>
+                <entry key="1" value-ref="food1"/>
+                <entry key="2" value-ref="food2"/>
+            </map>
+        </property>
+    </bean>
+
+
+
+
+
+
+
+</beans>
